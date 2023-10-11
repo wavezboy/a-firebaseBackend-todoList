@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import styled from "styled-components";
 
 const InputContainer = styled.form`
@@ -38,12 +38,29 @@ const StyledButton = styled.button`
     color: #fff;
   }
 `;
+interface Input {
+  uid: string;
+}
 
-const Input = ({ uid }) => {
+export default function Input({ uid }: Input) {
   const [value, setValue] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setValue("");
   };
-};
+
+  return (
+    <InputContainer onSubmit={handleSubmit}>
+      <StyledInput
+        type="text"
+        placeholder="add details"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <StyledButton type="submit">
+        <span>Add</span>
+      </StyledButton>
+    </InputContainer>
+  );
+}
