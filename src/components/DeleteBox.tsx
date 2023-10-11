@@ -10,7 +10,11 @@ const Container = styled.div`
   margin-top: 1.875rem;
 `;
 
-export default function DeleteBox({ uid }) {
+interface DeleteBox {
+  uid: string;
+}
+
+export default function DeleteBox({ uid }: DeleteBox) {
   return (
     <Container>
       <Button onClick={() => {}} variant="filled" color="red">
