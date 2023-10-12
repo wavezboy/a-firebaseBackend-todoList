@@ -9,7 +9,6 @@ const Container = styled.div`
   justify-content: flex-end;
   margin-top: 1.875rem;
 `;
-
 interface DeleteBox {
   uid: string;
 }
@@ -17,8 +16,13 @@ interface DeleteBox {
 export default function DeleteBox({ uid }: DeleteBox) {
   return (
     <Container>
-      <Button onClick={() => {}} variant="filled" color="red">
-        Del
+      <Button
+        onClick={() => {}}
+        variant="filled"
+        color="red"
+        leftIcon={<ThumbDown size={16} />}
+      >
+        Delete
       </Button>
     </Container>
   );
